@@ -3,7 +3,6 @@ package com.mobile.screen;
 import java.util.logging.Logger;
 
 import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,7 +10,6 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class BaseScreen {
 	
@@ -24,7 +22,6 @@ public class BaseScreen {
 	public BaseScreen(AppiumDriver<MobileElement> driver) {
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, MAX_TIMEOUT);
-		PageFactory.initElements(new AppiumFieldDecorator(this.driver), this);
 		this.isAndroid = "android".equalsIgnoreCase(platform);
 	}
 	

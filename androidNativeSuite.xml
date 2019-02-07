@@ -1,26 +1,23 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="AndroidNativeSuite" verbose="2" parallel="tests" thread-count="5">
- 	<test name="Android native app test on Android P1">
+<suite name="AndroidNativeSuite" verbose="2" parallel="tests"
+	thread-count="2">
+	<test name="Android native app test on Android P1">
 		<parameter name="deviceName" value="Android" />
 		<parameter name="platform" value="Android 9.0" />
 		<parameter name="udid" value="emulator-5554" />
-		<parameter name="address" value="127.0.0.1:4754/wd/hub" />
 		<parameter name="systemPort" value="8200" />
 		<classes>
-			<class name="com.mobile.test.BookingTest" /> 
-		    <class name="com.mobile.test.StationTest" />  
+			<class name="com.mobile.test.StationTest" />
 		</classes>
-	</test>  
+	</test>
 	<test name="Android native app test on Android P2">
 		<parameter name="deviceName" value="Android" />
 		<parameter name="platform" value="Android 9.0" />
 		<parameter name="udid" value="emulator-5556" />
-		<parameter name="address" value="127.0.0.1:4756/wd/hub" />
 		<parameter name="systemPort" value="8202" />
 		<classes>
-			<class name="com.mobile.test.BookingTest" /> 
-			<class name="com.mobile.test.StationTest" /> 
+			<class name="com.mobile.test.BookingTest" />
 		</classes>
 	</test>
 </suite>

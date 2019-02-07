@@ -19,11 +19,11 @@ public class DriverFactory {
 	private static AppiumDriver<MobileElement> driver;
 
 	public static AppiumDriver<MobileElement> getInstance(String deviceName, String platformMobile, String udid,
-			String address, String systemPort) throws Exception {
+			 String systemPort) throws Exception {
 
 		String[] platformInfo = platformMobile.split(" ");
 
-		URL url = new URL("http://" + address);
+		URL url = new URL("http://127.0.0.1:4444/wd/hub");
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 

@@ -13,75 +13,18 @@ The project is divided into _Packages_ and _Files_, such as:
 
 ## Running the tests
 
-Firstly, we have to set up the selenium grid in order to run the test suite in parallel. Let's do the following steps:
+Firstly, access root folder of project via command line we have to set up the selenium grid in order to run the test suite in parallel. Let's do the following steps:
 
-##### Create hub:
-`java -jar /Users/.../selenium-server-standalone-3.141.59.jar -role hub`
+##### Start hub:
+`java -jar selenium-server-standalone-3.14.0.jar -role hub`
 
-##### Create FIRST node:
-`appium --address 127.0.0.1 -bp 5523 --port 4754 --nodeconfig /Users/.../android1-cap.json` 
+##### Start FIRST node:
+`appium --address 127.0.0.1 -bp 5523 --port 4754 --nodeconfig caps/android1-cap.json` 
 
-- android1-cap.json
 
-```
-{
-    "capabilities": [{
-        "browserName": "Android",
-        "maxInstances": 1,
-        "platform": "ANDROID",
-        "deviceName": "emulator-5554",
-        "newCommandTimeout": "30",
-        "deviceReadyTimeout": 5
-    }],
-    "configuration": {
-        "cleanUpCycle": 2000,
-        "timeout": 10800,
-        "url": "http://127.0.0.1:4754/wd/hub",
-        "host": "127.0.0.1",
-        "port": 4754,
-        "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
-        "maxSession": 1,
-        "register": true,
-        "registerCycle": 5000,
-        "hubPort": 4444,
-        "hubHost": "127.0.0.1",
-        "session-override": true
-    }
-}
-```
+##### Start SECOND node:
 
-##### Create SECOND node:
-
-`appium --address 127.0.0.1 -bp 5525 --port 4756 --nodeconfig /Users/.../android2-cap.json` 
-
-- android2-cap.json
-
-```
-{
-    "capabilities": [{
-        "browserName": "Android",
-        "maxInstances": 1,
-        "platform": "ANDROID",
-        "deviceName": "emulator-5556",
-        "newCommandTimeout": "30",
-        "deviceReadyTimeout": 5
-    }],
-    "configuration": {
-        "cleanUpCycle": 2000,
-        "timeout": 10800,
-        "url": "http://127.0.0.1:4756/wd/hub",
-        "host": "127.0.0.1",
-        "port": 4756,
-        "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
-        "maxSession": 1,
-        "register": true,
-        "registerCycle": 5000,
-        "hubPort": 4444,
-        "hubHost": "127.0.0.1",
-        "session-override": true
-    }
-}
-```
+`appium --address 127.0.0.1 -bp 5525 --port 4756 --nodeconfig caps/android2-cap.json` 
 
 ##### Get UDID from Android devices:
 Create a virtual device and/or connect a real device on computer. Following that, type `adb devices` on terminal.

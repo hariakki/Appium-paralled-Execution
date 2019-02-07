@@ -20,12 +20,12 @@ public class BaseTest {
 	protected StationScreen station;
 
 	@BeforeClass(alwaysRun = true)
-	@Parameters({ "deviceName", "platform", "udid", "address", "systemPort" })
-	public void setup(String deviceName, String platform, String udid, String address, String systemPort)
+	@Parameters({ "deviceName", "platform", "udid", "systemPort" })
+	public void setup(String deviceName, String platform, String udid, String systemPort)
 			throws Exception {
 		System.out.println("Configuration # deviceName: " + deviceName + " - platform: " + platform + " - udid: "
-				+ udid + " - address: " + address + " - systemPort: " + systemPort);
-		driver = DriverFactory.getInstance(deviceName, platform, udid, address, systemPort);
+				+ udid + " - " + " - systemPort: " + systemPort);
+		driver = DriverFactory.getInstance(deviceName, platform, udid, systemPort);
 		menu = new BottomMenuBarScreen(driver);
 	}
 

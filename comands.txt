@@ -1,0 +1,8 @@
+#start grid
+java -jar selenium-server-standalone-3.14.0.jar -role hub
+
+#Appium node 1
+appium --address 127.0.0.1 -bp 5523 --port 4754 --nodeconfig caps/android1-cap.json
+
+#Appium node 2 
+appium --address 127.0.0.1 -bp 5525 --port 4756 --nodeconfig caps/android2-cap.json
